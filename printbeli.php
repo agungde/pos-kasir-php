@@ -3,8 +3,8 @@
 	include $view;
 	$lihat = new view($config);
 	$toko = $lihat -> toko();
-	$hsl = $lihat -> penjualan();
-	$jual = $lihat -> jual();
+	$hsl = $lihat -> pembelian();
+	$beli = $lihat -> beli();
 
 	
 ?>
@@ -31,7 +31,7 @@
 							<td>No.</td>
 							<td>Barang</td>
 							<td>Jumlah</td>
-							<td>Harga Jual</td>
+							<td>Harga Beli</td>
 							<td>Total</td>
 						</tr>
 						<?php $no=1; foreach($hsl as $isi){?>
@@ -39,7 +39,7 @@
 							<td><?php echo $no;?></td>
 							<td><?php echo $isi['nama_barang'];?></td>
 							<td><?php echo $isi['jumlah'];?></td>
-							<td><?php echo $isi['harga_jual'];?></td>
+							<td><?php echo $isi['harga_beli'];?></td>
 							<td><?php echo $isi['total'];?></td>
 						
 						</tr>

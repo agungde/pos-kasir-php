@@ -16,7 +16,7 @@
 		if($jum > 0){
 			$hasil = $row -> fetch();
 			$_SESSION['admin'] = $hasil;
-			echo '<script>alert("Login Sukses");window.location="index.php"</script>';
+			echo '<script>("Login Sukses");window.location="index.php"</script>';
 		}else{
 			echo '<script>alert("Login Gagal");history.go(-1);</script>';
 		}
