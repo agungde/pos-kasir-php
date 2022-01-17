@@ -201,7 +201,7 @@ if(!empty($_GET['kategori'])){
 					window.location="../../index.php?page=jual#keranjang"</script>';
 		}
 	}
-}
+
 
 
 
@@ -213,10 +213,9 @@ if(!empty($_GET['beli'])){
 		$row->execute(array($id));
 		$hsl = $row->fetch();
 
-		if($hsl['stok'])
-		{
+	if($hsl['stok']){
 			$kasir =  $_GET['id_kasir'];
-			$jumlah = 1;
+			$jumlah = $hsl['harga_beli'];
 			$harga_beli = $hsl['harga_beli'];
 			$total = $hsl['total'];
 			$tgl = date("j F Y, G:i");
@@ -235,7 +234,9 @@ if(!empty($_GET['beli'])){
 			echo '<script>window.location="../../index.php?page=beli&success=tambah-data"</script>';
 
 		}else{
-			echo '<script>alert("Stok Barang Anda Telah Habis !");
-					window.location="../../index.php?page=beli#keranjang"</script>';
+			echo '
+					<script>window.location="../../index.php?page=beli#keranjang"</script>';
 		}
-	}
+}
+}
+	

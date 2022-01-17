@@ -196,7 +196,7 @@ if(!empty($_SESSION['admin'])){
 		$hasil = $row_tampil -> fetch();
 
 
-	if($hasil['stok'] > $jumlah)
+	if($hasil['stok'])
 		{
 			$jual = $hasil['harga_jual'];
 			$total = $jual * $jumlah;
@@ -209,10 +209,7 @@ if(!empty($_SESSION['admin'])){
 			$row1 = $config -> prepare($sql1);
 			$row1 -> execute($data1);
 			echo '<script>window.location="../../index.php?page=jual#keranjang"</script>';
-		}else{
-			echo '<script>alert("Keranjang Melebihi Stok Barang Anda !");
-					window.location="../../index.php?page=jual#keranjang"</script>';
-		}
+		
 		
 	}
 
@@ -331,3 +328,4 @@ if(!empty($_GET['beli'])){
 		}
 	}
 
+}

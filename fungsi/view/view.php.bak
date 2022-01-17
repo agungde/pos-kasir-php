@@ -60,7 +60,7 @@
 				$hasil = $row -> fetchAll();
 				return $hasil;
 			}
-             function satuan(){
+function satuan(){
 				$sql = "select*from satuan";
 				$row = $this-> db -> prepare($sql);
 				$row -> execute();
@@ -68,14 +68,14 @@
 				return $hasil;
 			}
 				function satuan_edit($id){
-				$sql = "select*from satuan where id_satuan =?";
+				$sql = "select*from satuan where nama_satuan=?";
 				$row = $this-> db -> prepare($sql);
 				$row -> execute(array($id));
 				$hasil = $row -> fetch();
 				return $hasil;
 			}
 			
-			    function satuan_row(){
+			function satuan_row(){
 				$sql = "select*from satuan";
 				$row = $this-> db -> prepare($sql);
 				$row -> execute();
