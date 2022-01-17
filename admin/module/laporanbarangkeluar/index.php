@@ -30,11 +30,11 @@
 								<button class="btn btn-danger">RESET</button>
 							</a>-->
 							<?php if(!empty($_GET['cari'])){ ?>
-								Data Laporan Penjualan <?= $bulan_tes[$_POST['bln']];?> <?= $_POST['thn'];?>
+								Data Laporan Barang Keluar <?= $bulan_tes[$_POST['bln']];?> <?= $_POST['thn'];?>
 							<?php }elseif(!empty($_GET['hari'])){?>
-								Data Laporan Penjualan <?= $_POST['hari'];?>
+								Data Laporan Barang Keluar <?= $_POST['hari'];?>
 							<?php }else{?>
-								Data Laporan Penjualan <?= $bulan_tes[date('m')];?> <?= date('Y');?>
+								Data Laporan Barang Keluar <?= $bulan_tes[date('m')];?> <?= date('Y');?>
 							<?php }?>
 						</h3>
 						<br/>
@@ -89,10 +89,10 @@
 										<i class="fa fa-refresh"></i> Refresh</a>
 										
 									<?php if(!empty($_GET['cari'])){?>
-										<a href="excel.php?cari=yes&bln=<?=$_POST['bln'];?>&thn=<?=$_POST['thn'];?>" class="btn btn-info"><i class="fa fa-download"></i>
+										<a href="excelkeluar.php?cari=yes&bln=<?=$_POST['bln'];?>&thn=<?=$_POST['thn'];?>" class="btn btn-info"><i class="fa fa-download"></i>
 										Excel</a>
 									<?php }else{?>
-										<a href="excel.php" class="btn btn-info"><i class="fa fa-download"></i>
+										<a href="excelkeluar.php" class="btn btn-info"><i class="fa fa-download"></i>
 										Excel</a>
 									<?php }?>
 								</td>
@@ -122,10 +122,10 @@
 										<i class="fa fa-refresh"></i> Refresh</a>
 										
 									<?php if(!empty($_GET['hari'])){?>
-										<a href="excel.php?hari=cek&tgl=<?= $_POST['hari'];?>" class="btn btn-info"><i class="fa fa-download"></i>
+										<a href="excelkeluar.php?hari=cek&tgl=<?= $_POST['hari'];?>" class="btn btn-info"><i class="fa fa-download"></i>
 										Excel</a>
 									<?php }else{?>
-										<a href="excel.php" class="btn btn-info"><i class="fa fa-download"></i>
+										<a href="excelkeluar.php" class="btn btn-info"><i class="fa fa-download"></i>
 										Excel</a>
 									<?php }?>
 								</td>
@@ -144,9 +144,7 @@
 										<th> ID Barang</th>
 										<th> Nama Barang</th>
 										<th style="width:10%;"> Jumlah keluar</th>
-										<th style="width:10%;">Total Harga Beli</th>
-										<th style="width:10%;">Total Harga Jual</th>
-										<th> Harga Jual</th>
+									
 										<th> Kasir</th>
 										<th> Tanggal Input</th>
 									</tr>
@@ -184,9 +182,7 @@
 										<td><?php echo $isi['id_barang'];?></td>
 										<td><?php echo $isi['nama_barang'];?></td>
 										<td><?php echo $isi['jumlah'];?> </td>
-										<td>Rp.<?php echo number_format($isi['harga_beli']* $isi['jumlah']);?>,-</td>
-										<td>Rp.<?php echo number_format($isi['total']);?>,-</td>
-										<td>Rp.<?php echo number_format($isi['harga_jual']);?>,-</td>
+										
 										<td><?php echo $isi['nm_member'];?></td>
 										<td><?php echo $isi['tanggal_input'];?></td>
 									</tr>
@@ -194,13 +190,11 @@
 								</tbody>
 								<tfoot>
 									<tr>
-										<th colspan="3">Total Terjual</td>
+										<th colspan="3">Jumlah Keluar</td>
 										<th><?php echo $jumlah;?></td>
-										<th>Rp.<?php echo number_format($modal);?>,-</th>
-										<th>Rp.<?php echo number_format($bayar);?>,-</th>
-										<th style="background:#0bb365;color:#fff;">Keuntungan</th>
-										<th style="background:#0bb365;color:#fff;">
-											Rp.<?php echo number_format($bayar-$modal);?>,-</th>
+									
+										
+										
 									</tr>
 								</tfoot>
 							</table>

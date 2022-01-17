@@ -2,8 +2,8 @@
       <!--footer start-->
       <footer class="site-footer">
           <div class="text-center">
-              <?php echo date('Y');?> - Sistem Penjualan Barang Berbasis Web | 
-              By <a href="https://codekop.com" style="color:yellow;font-weight:700;" target="_blank">Codekop.com</a>
+              <?php echo date('Y');?> - Sistem Kasir Toko Berbasis Web | 
+              By <a href="Autor Agung" style="color:yellow;font-weight:700;" target="_blank">Agung</a>
               <a href="#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>

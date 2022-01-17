@@ -32,7 +32,7 @@
 							$row = $config -> prepare($sql);
 							$row -> execute();
 							$r = $row -> rowCount();
-							if($r > -0){
+							if($r < 0){
 						?>	
 						<?php
 								echo "
@@ -115,7 +115,7 @@
 									
 										<td> <?php echo $isi['tgl_input'];?></td>
 										<td>
-											<?php if($isi['stok'] <=  -0){?>
+											<?php if($isi['stok'] <=  '0'){?>
 												<form method="POST" action="fungsi/edit/edit.php?stok=edit">
 													<input type="text" name="restok" class="form-control">
 													<input type="hidden" name="id" value="<?php echo $isi['id_barang'];?>" class="form-control">

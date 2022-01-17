@@ -64,7 +64,10 @@
 									<td><?php echo $hasil['stok'];?></td>
 								</tr>
 								<tr>
-								
+										<td>Jumlah Masuk</td>
+									<td><?php echo $hasil['stok'];?></td>
+								</tr>
+								<tr>
 									<td>Tanggal Input</td>
 									<td><?php echo $hasil['tgl_input'];?></td>
 								</tr>

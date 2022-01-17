@@ -30,16 +30,16 @@
 								<button class="btn btn-danger">RESET</button>
 							</a>-->
 							<?php if(!empty($_GET['cari'])){ ?>
-								Data Laporan Penjualan <?= $bulan_tes[$_POST['bln']];?> <?= $_POST['thn'];?>
+								Data Laporan Pembelian <?= $bulan_tes[$_POST['bln']];?> <?= $_POST['thn'];?>
 							<?php }elseif(!empty($_GET['hari'])){?>
-								Data Laporan Penjualan <?= $_POST['hari'];?>
+								Data Laporan Pembelian <?= $_POST['hari'];?>
 							<?php }else{?>
-								Data Laporan Penjualan <?= $bulan_tes[date('m')];?> <?= date('Y');?>
+								Data Laporan Pembelian<?= $bulan_tes[date('m')];?> <?= date('Y');?>
 							<?php }?>
 						</h3>
 						<br/>
 						<h4>Cari Laporan Per Bulan</h4>
-						<form method="post" action="index.php?page=laporan&cari=ok">
+						<form method="post" action="index.php?page=laporanbeli&cari=ok">
 							<table class="table table-striped">
 								<tr>
 									<th>
@@ -85,7 +85,7 @@
 									<button class="btn btn-primary">
 										<i class="fa fa-search"></i> Cari
 									</button>
-									<a href="index.php?page=laporan" class="btn btn-success">
+									<a href="index.php?page=laporanbeli" class="btn btn-success">
 										<i class="fa fa-refresh"></i> Refresh</a>
 										
 									<?php if(!empty($_GET['cari'])){?>
@@ -99,7 +99,7 @@
 								</tr>
 							</table>
 						</form>
-						<form method="post" action="index.php?page=laporan&hari=cek">
+						<form method="post" action="index.php?page=laporanbeli&hari=cek">
 							<table class="table table-striped">
 								<tr>
 									<th>
@@ -118,7 +118,7 @@
 									<button class="btn btn-primary">
 										<i class="fa fa-search"></i> Cari
 									</button>
-									<a href="index.php?page=laporan" class="btn btn-success">
+									<a href="index.php?page=laporanbeli" class="btn btn-success">
 										<i class="fa fa-refresh"></i> Refresh</a>
 										
 									<?php if(!empty($_GET['hari'])){?>
@@ -143,10 +143,10 @@
 										<th> No</th>
 										<th> ID Barang</th>
 										<th> Nama Barang</th>
-										<th style="width:10%;"> Jumlah keluar</th>
+										<th style="width:10%;"> Jumlah Beli</th>
 										<th style="width:10%;">Total Harga Beli</th>
-										<th style="width:10%;">Total Harga Jual</th>
-										<th> Harga Jual</th>
+									<th style="width:10%;">Total Harga Jual</th>
+										
 										<th> Kasir</th>
 										<th> Tanggal Input</th>
 									</tr>
@@ -159,15 +159,15 @@
 											$no=1; 
 											$jumlah = 0;
 											$bayar = 0;
-											$hasil = $lihat -> periode_jual($periode);
+											$hasil = $lihat -> periode_beli($periode);
 										}elseif(!empty($_GET['hari'])){
 											$hari = $_POST['hari'];
 											$no=1; 
 											$jumlah = 0;
 											$bayar = 0;
-											$hasil = $lihat -> hari_jual($hari);
+											$hasil = $lihat -> hari_beli($hari);
 										}else{
-											$hasil = $lihat -> jual();
+											$hasil = $lihat -> beli();
 										}
 									?>
 									<?php 
@@ -186,7 +186,7 @@
 										<td><?php echo $isi['jumlah'];?> </td>
 										<td>Rp.<?php echo number_format($isi['harga_beli']* $isi['jumlah']);?>,-</td>
 										<td>Rp.<?php echo number_format($isi['total']);?>,-</td>
-										<td>Rp.<?php echo number_format($isi['harga_jual']);?>,-</td>
+										
 										<td><?php echo $isi['nm_member'];?></td>
 										<td><?php echo $isi['tanggal_input'];?></td>
 									</tr>
@@ -194,7 +194,7 @@
 								</tbody>
 								<tfoot>
 									<tr>
-										<th colspan="3">Total Terjual</td>
+										<th colspan="3">Total Beli</td>
 										<th><?php echo $jumlah;?></td>
 										<th>Rp.<?php echo number_format($modal);?>,-</th>
 										<th>Rp.<?php echo number_format($bayar);?>,-</th>

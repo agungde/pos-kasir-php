@@ -134,7 +134,7 @@
 														
 														for($x=0;$x<$jumlah_dipilih;$x++){
 
-															$d = array($id_barang[$x],$id_member[$x],$jumlah[$x],$total[$x],$tgl_input[$x],$periode[$x],$harga_jual[$x]);
+															$d = array($id_barang[$x],$id_member[$x],$jumlah[$x],$total[$x],$tanggal_input[$x],$periode[$x],$harga_jual[$x]);
 															$sql = "INSERT INTO nota (id_barang, id_member,jumlah,total,tanggal_input,periode,harga_jual) VALUES(?,?,?,?,?,?,?)";
 															$row = $config->prepare($sql);
 															$row->execute($d);
